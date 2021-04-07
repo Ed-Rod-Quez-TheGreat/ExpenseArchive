@@ -2,6 +2,7 @@ package com.EdRodriquez.ExpenseArchive.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -32,7 +33,12 @@ public class HelloController {
     @ResponseBody
     public String helloWithQueryParam(@RequestParam String name) {
         return "Howdy, " + name + "!";
-
     }
 
+    //handles requests of the form /hello/LaunchCode
+    @GetMapping("hello/{name}")
+    @ResponseBody
+    public String helloWithPathParameter (@PathVariable String name) {
+        return "Guten Tag, " + name + "!";
+    }
 }
